@@ -15,6 +15,7 @@ import os
 from flask import Flask
 
 from app.config import config
+from app.extensions import db, moment, migrate
 
 
 def create_app(config_name=None):
@@ -29,12 +30,18 @@ def create_app(config_name=None):
     app = Flask(__name__)
     app.config.from_object(config[config_name])
 
-    register_logging(app)
+    # register_logging(app)
     register_extensions(app)
-    register_blueprints(app)
+    # register_blueprints(app)
     # register_errors(app)
-    register_commands(app)
-    register_shell_context(app)
+    # register_commands(app)
+    # register_shell_context(app)
     # register_template_context(app)
     # register_request_handlers(app)
     return app
+
+
+def register_extensions(app):
+    db.init_app(app)
+    migrate.init_app(app)
+    moment.init_app(app)
