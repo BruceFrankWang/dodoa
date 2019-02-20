@@ -1,0 +1,29 @@
+<!--
+    DODOA
+        A better OA system for Design Management.
+    
+    :Author:    Bruce Frank Wang
+    :File Time: 2019-02-20 16:55
+    :copyright: © 2019 Bruce Frank Wang <bruce.frank.wang@gmail.com>
+    :license:   GPL v3, see LICENSE for more details.
+-->
+
+<!-- TODO: Add pop menu -->
+{% macro navigator() %}
+<div class="navigator">
+    <span><a href="{{ url_for('main.index') }}">DODOA</a></span>
+    <span><a href="{{ url_for('main.project_brief') }}">Project</a></span>
+    {% if project_menu_list %}
+        <ul class="menu">
+            {% for item in project_menu_list %}
+            <li class="menu_item" onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)">
+                <a href="{{ url_for(item.url) }}">item.text</a>
+            </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <span><a href="{{ url_for('main.plan') }}">Plan</a></span>
+    <span><a href="{{ url_for('main.employee') }}">Employee</a></span>
+    <span><a href="{{ url_for('main.resource') }}">Resource</a></span>
+</div>
+{% endmacro %}

@@ -7,7 +7,7 @@
     :Author:    Bruce Frank Wang <bruce.frank.wang@gmail.com>
     :Time:      2019-02-20 01:20
     :copyright: © 2019 Bruce Frank Wang <bruce.frank.wang@gmail.com>
-    :license:   MIT, see LICENSE for more details.
+    :license:   GPL v3, see LICENSE for more details.
 """
 
 from flask_sqlalchemy import SQLAlchemy

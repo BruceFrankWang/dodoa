@@ -1,0 +1,27 @@
+<!--
+    DODOA
+        A better OA system for Design Management.
+    
+    :Author:    Bruce Frank Wang
+    :File Time: 2019-02-20 17:30
+    :copyright: © 2019 Bruce Frank Wang <bruce.frank.wang@gmail.com>
+    :license:   GPL v3, see LICENSE for more details.
+-->
+
+{% extends 'base.html' %}
+
+{% from "_navigator.html" import navigator %}
+{% from "_page_foot.html" import page_foot %}
+
+{% block navigator %}
+    {{ navigator() }}
+{% endblock %}
+
+{% block content %}
+    <h1>Project: {{ project.name }}</h1>
+        more details...
+{% endblock %}
+
+{% block page_foot %}
+    {{ page_foot() }}
+{% endblock %}

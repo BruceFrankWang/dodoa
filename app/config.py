@@ -7,15 +7,15 @@
     :Author:    Bruce Frank Wang <bruce.frank.wang@gmail.com>
     :Time:      2019-02-19 22:13
     :copyright: © 2019 Bruce Frank Wang <bruce.frank.wang@gmail.com>
-    :license:   MIT, see LICENSE for more details.
+    :license:   GPL v3, see LICENSE for more details.
 """
 
 import os
 import sys
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 
 basedir = os.path.abspath(os.path.dirname(__file__))
-# load_dotenv(os.path.join(basedir, '.env'))
+load_dotenv(os.path.join(basedir, '.env'))
 
 # SQLite URI compatible
 WIN = sys.platform.startswith('win')
@@ -30,7 +30,9 @@ class BaseConfig(object):
 
 
 class DevelopmentConfig(BaseConfig):
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
     SQLALCHEMY_DATABASE_URI = prefix + os.path.join(basedir, 'data-dev.sqlite')
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
 class TestingConfig(BaseConfig):

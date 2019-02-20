@@ -1,0 +1,49 @@
+<!--
+    DODOA
+        A better OA system for Design Management.
+    
+    :Author:    Bruce Frank Wang
+    :File Time: 2019-02-20 16:50
+    :copyright: © 2019 Bruce Frank Wang <bruce.frank.wang@gmail.com>
+    :license:   GPL v3, see LICENSE for more details.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% if title %}
+        <title>{{ title }} - DODOA</title>
+    {% else %}
+        <title>Frontpage - DODOA</title>
+    {% endif %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/common.css') }}">
+
+    <script type="text/javascript">
+        function displaySubMenu(li) {
+            var subMenu = li.getElementsByTagName("ul")[0];
+            subMenu.style.display = "block";
+        }
+
+        function hideSubMenu(li) {
+            var subMenu = li.getElementsByTagName("ul")[0];
+            subMenu.style.display = "none";
+        }
+    </script>
+
+</head>
+<body>
+{% block navigator %}
+{% endblock %}
+
+<hr>
+
+{% block content %}
+{% endblock %}
+
+<hr>
+
+{% block page_foot %}
+{% endblock %}
+</body>
+</html>
